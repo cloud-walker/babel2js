@@ -1,12 +1,19 @@
 gulp   = require 'gulp'
 watch  = require 'gulp-watch'
 stylus = require 'gulp-stylus'
+strip  = require 'gulp-strip-css-comments'
+minify = require 'gulp-minify-css'
 sync   = require 'browser-sync'
 config = require '../config'
 
 gulp.task 'stylus', ->
 	gulp.src "#{config.src}/index.styl"
-		.pipe stylus()
+		.pipe stylus(
+			'include css': true
+			include: "./node_modules"
+		)
+		.pipe strip(preserve: false)
+		.pipe minify()
 		.pipe gulp.dest(config.dest)
 		.pipe sync.reload(stream: true)
 
