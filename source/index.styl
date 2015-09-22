@@ -1,6 +1,16 @@
 @require 'normalize.css/normalize.css'
+@require 'codemirror/lib/codemirror.css'
 
 #content
-#js
-#babel
-	outline: 1px solid
+	display: flex
+
+	#js
+	#babel
+		flex-grow: 1
+
+		.CodeMirror
+			background-color: #aaa
+
+	#js
+		.CodeMirror
+			border-right: 1px solid
