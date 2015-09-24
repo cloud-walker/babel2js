@@ -5,6 +5,7 @@ strip      = require 'gulp-strip-css-comments'
 minify     = require 'gulp-minify-css'
 sourcemaps = require 'gulp-sourcemaps'
 sync       = require 'browser-sync'
+nib        = require 'nib'
 config     = require '../config'
 
 gulp.task 'stylus', ->
@@ -12,7 +13,8 @@ gulp.task 'stylus', ->
 		.pipe sourcemaps.init()
 		.pipe stylus(
 			'include css': true
-			include: "./node_modules"
+			include      : './node_modules'
+			use          : [nib()]
 		)
 		.pipe strip(preserve: false)
 		.pipe minify()
