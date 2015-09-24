@@ -16,6 +16,35 @@
 		height    : 100%
 		background: #eee
 		padding   : 1rem
+		transition: border-top .3s
+
+		&.focused
+			border-top: 4px solid #333
+
+		.editor
+		.output
+			height: 100%
+
+		hgroup
+			border-bottom : 1px solid
+			padding-bottom: .5em
+			margin-bottom : .5em
+
+		h1
+			margin        : 0
+			font-size     : 1em
+			text-transform: uppercase
+			margin-right  : .5em
+
+		h2
+			margin   : 0
+			font-size: .8em
+			opacity: .5
+
+		h1
+		h2
+			display    : inline-block
+			font-weight: normal
 
 		.CodeMirror
 			height    : 100%
@@ -23,3 +52,6 @@
 
 	#babel
 		border-right: 1px solid
+
+		.CodeMirror
+			font-size: 1.3em
