@@ -6,8 +6,9 @@ babel    = require 'babel-core'
 console.log 'JS Working'
 
 $ ->
-	jseditor    = mirror $('#js')[0], value: babel.transform('').code
-	babeleditor = mirror $('#babel')[0]
+	babelCode   = 'class Animal {}'
+	babelEditor = mirror $('#babel')[0], value: babelCode
+	jsEditor    = mirror $('#js')[0], value: babel.transform(babelCode).code
 
-	babeleditor.on 'change', (e) ->
-		jseditor.setValue babel.transform(babeleditor.getValue()).code
+	babelEditor.on 'change', (e) ->
+		jsEditor.setValue babel.transform(babelEditor.getValue()).code
